@@ -13,3 +13,5 @@ wikipedia of any college, school or organizations as per user need.
 * Basic GUI
 * User input about the organization
 * Multiple options asking about the college, schools or organization like fees, employers, etc
+<br>
+Join the slack Channel : <a href = "https://bit.ly/2yeY51T"> Slack </a>
