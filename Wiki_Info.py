@@ -5,7 +5,7 @@ from lxml import etree
 #University of Michigan and more...
 
 #Take the input
-college = input('Enter college url: ')
+college = input('[*]Enter college url: ')
 
 #Get the real page title through wikipedia eng api
 url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&srsearch=%s' % college
@@ -29,7 +29,7 @@ store = etree.fromstring(result_req.text)
 output = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
 
 if len(output) >= 1:
-  print(output[0].text)
+  print('Motto: ' + output[0].text)
 
 else:
   print('[!]No motto here')
