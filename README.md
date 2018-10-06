@@ -16,12 +16,6 @@ Committed code is scrapping the Motto of MIT. Later on we can enhance the code i
 * Include proper PR message while giving pull request
 * Try to keep pull requests small to minimize merge conflicts
 
-#### Installation
-*   Install dependencies :
-    ```
-        $ python setup.py install
-    ```
-
 #### Getting Started
 
 * Fork this repo (button on top)
@@ -32,6 +26,10 @@ Committed code is scrapping the Motto of MIT. Later on we can enhance the code i
 * Change to `Wiki_Scraping` directory
     ```
         $ cd Wiki_Scraping
+    ```
+* Install dependencies :
+    ```
+        $ python setup.py install
     ```
 * Create a new branch
     ```
@@ -53,6 +51,10 @@ Committed code is scrapping the Motto of MIT. Later on we can enhance the code i
 ### How to use
 * Open `Terminal`
 * Go to `Wiki_Scraper` directory.
+* Install dependencies :
+    ```
+        $ python setup.py install
+    ```
 * Run `Wiki_Info.py` :
     ```
         $ python Wiki_Info.py
