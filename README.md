@@ -16,6 +16,12 @@ Committed code is scrapping the Motto of MIT. Later on we can enhance the code i
 * Include proper PR message while giving pull request
 * Try to keep pull requests small to minimize merge conflicts
 
+#### Installation
+*   Install dependencies :
+    ```
+        $ python setup.py install
+    ```
+
 #### Getting Started
 
 * Fork this repo (button on top)
@@ -43,6 +49,17 @@ Committed code is scrapping the Motto of MIT. Later on we can enhance the code i
         $ git push origin my-new-branch
     ```
 * Create a new pull request from your forked repository to `master` branch of `DSC-Galgotias/Wiki_Scraping`
+
+### How to use
+* Open `Terminal`
+* Go to `Wiki_Scraper` directory.
+* Run `Wiki_Info.py` :
+    ```
+        $ python Wiki_Info.py
+    ```
+
+## Technologies used
+* [Python](https://www.python.org/) 
 
 ## Remaining Enhancements
 
