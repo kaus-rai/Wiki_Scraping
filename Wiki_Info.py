@@ -14,10 +14,11 @@ def scraper(college):
     output = json.loads(req.text)
     #take the first matching result
     page_title = output['query']['search'][0]['title']
-    print(page_title)
+    page_id = output['query']['search'][0]['pageid']
+    print('Found page with title "%s" and id %s' % (page_title,page_id))
 
     #Make the request for the page requested by the user
-    result_url = 'https://en.wikipedia.org/wiki/%s' % page_title
+    result_url = 'https://en.wikipedia.org/wiki?curid=%d' % page_id
 
     result_req = requests.get(result_url)
 
@@ -64,4 +65,3 @@ def scraper(college):
                  "Location": output_loc[0].text}
 
     return dict_items
-
