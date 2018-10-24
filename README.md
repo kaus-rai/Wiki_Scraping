@@ -3,6 +3,7 @@
 
 Wiki Scraping is a simple python web scraping tool to scrap educational institutions details from [Wikipedia](https://www.wikipedia.org/) using user input.
 
+## This repository is part of Gof-2018 . Don't forget to register yourself before contributing.
 ### Project Status<br>
 Committed code is scrapping the Motto of MIT. Later on we can enhance the code in such a way that it may be able to fetch any data from wikipedia of any college, school or organizations as per user need.
 
