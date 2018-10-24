@@ -1,5 +1,6 @@
 import requests, json
 from lxml import etree
+from bs4 import BeautifulSoup
 
 def scraper(college):
     #Tested with University of Toronto, Chan Sui Ki, University of Santo Tomas, Far Eastern University,
@@ -14,14 +15,20 @@ def scraper(college):
     output = json.loads(req.text)
     #take the first matching result
     page_title = output['query']['search'][0]['title']
-    print(page_title)
+    page_id = output['query']['search'][0]['pageid']
+    print('Found page with title "%s" and id %s' % (page_title,page_id))
 
     #Make the request for the page requested by the user
-    result_url = 'https://en.wikipedia.org/wiki/%s' % page_title
+    result_url = 'https://en.wikipedia.org/wiki?curid=%d' % page_id
 
-    result_req = requests.get(result_url)
-
-    store = etree.fromstring(result_req.text)
+    result_req = requests.get(result_url).text
+    soup = BeautifulSoup(result_req,features='lxml')
+    table = soup.find('table',class_='infobox vcard')
+    result = {}
+    for row in table.find_all('tr'):
+        if row.find('th'):
+            result[row.find('th').text] = row.find('td').text
+    return {key.strip():result[key].strip() for key in result}
 
     #Look for the college motto
     output_motto = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
