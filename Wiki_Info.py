@@ -26,8 +26,11 @@ def scraper(college):
     #Look for the college motto
     output_motto = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
 
+    dict_items={}
+
     if len(output_motto) >= 1:
         print('Motto: ' + output_motto[0].text)
+        dict_items['Motto']=output_motto[0].text
 
     else:
         print('[!]No motto here')
@@ -38,6 +41,7 @@ def scraper(college):
 
     if(len(output_chan)>= 1):
         print("Chancellor: "+output_chan[0].text)
+        dict_items['Chancellor'] = output_chan[0].text
 
     else:
         print('[!]No Chancellor found')
@@ -46,6 +50,7 @@ def scraper(college):
     output_pres = store.xpath('//*[@id="mw-content-text"]/div/table[1]/tbody/tr[9]/td/a')
     if(len(output_pres)>=1):
         print("President: "+output_pres[0].text)
+        dict_items['President']=output_pres[0].text
     else:
         print('[!]No President found')
 
@@ -53,15 +58,12 @@ def scraper(college):
     output_loc = store.xpath('//*[@id="mw-content-text"]/div/table[1]/tbody/tr[15]/td/span[1]/a')
     if(len(output_loc)>= 1):
         print("Location: "+output_loc[0].text)
+        dict_items["Location"]=output_loc[0].text
     else:
         print('[!]No Location Found')
 
     #Look for the college motto
     output = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
-    dict_items= {"Motto": output_motto[0].text,
-                 "Chancellor": output_chan[0].text,
-                 "President": output_pres[0].text,
-                 "Location": output_loc[0].text}
 
     return dict_items
 
