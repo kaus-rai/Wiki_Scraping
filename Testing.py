@@ -16,7 +16,7 @@ class ScraperTests(unittest.TestCase):
         print('Testing University of Warsaw')
         uniinfo = scraper('University of Warsaw')
         self.assertEqual(uniinfo['Type'],'Public')
-        self.assertEqual(uniinfo['Established'],'1816  (202\xa0years ago)')
+        self.assertEqual(uniinfo['Established'],'1816')
         self.assertEqual(uniinfo['Location'],'Warsaw, Poland')
         print()
 
