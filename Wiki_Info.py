@@ -2,6 +2,10 @@ import requests, json
 from lxml import etree
 from bs4 import BeautifulSoup
 
+def writeToFile(filename, data):
+    with open(filename, 'w', encoding='utf-8') as outfile:
+        json.dump(data, outfile, indent=2, sort_keys=True)
+
 def scraper(college):
     #Tested with University of Toronto, Chan Sui Ki, University of Santo Tomas, Far Eastern University,
     #University of Michigan and more...
@@ -31,6 +35,9 @@ def scraper(college):
 
     if 'Established' in result:
         result['Established'] = result['Established'].strip().split()[0]
+
+    writeToFile('json/output.json', {key.strip():result[key].strip() for key in result})
+
     return {key.strip():result[key].strip() for key in result}
 
     #Look for the college motto
@@ -76,3 +83,6 @@ def scraper(college):
     output = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
 
     return dict_items
+
+if __name__ == '__main__':
+    scraper('University of Toronto')
