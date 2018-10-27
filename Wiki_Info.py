@@ -28,6 +28,9 @@ def scraper(college):
     for row in table.find_all('tr'):
         if row.find('th'):
             result[row.find('th').text] = row.find('td').text
+
+    if 'Established' in result:
+        result['Established'] = result['Established'].strip().split()[0]
     return {key.strip():result[key].strip() for key in result}
 
     #Look for the college motto
@@ -73,4 +76,3 @@ def scraper(college):
     output = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
 
     return dict_items
-
