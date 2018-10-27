@@ -24,6 +24,7 @@ def scraper(college):
     result_req = requests.get(result_url).text
     soup = BeautifulSoup(result_req,features='lxml')
     table = soup.find('table',class_='infobox vcard')
+    print(table)
     result = {}
     for row in table.find_all('tr'):
         if row.find('th'):
@@ -71,8 +72,10 @@ def scraper(college):
         dict_items["Location"]=output_loc[0].text
     else:
         print('[!]No Location Found')
+    print(dict_items)
 
     #Look for the college motto
     output = store.xpath('//table[@class="infobox vcard"]/tbody/tr[th/text()="Motto"]/td/i')
 
     return dict_items
+
